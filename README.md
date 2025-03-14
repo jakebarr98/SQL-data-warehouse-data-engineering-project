@@ -1,4 +1,4 @@
-# SQL-data-warehouse-data-engineering-project
+# Design & Build SQL Data Warehouse
 
 ### Theory:
 
@@ -10,28 +10,28 @@ Extract technique: File parsing
 
 #### Transform:
 ##### Transformation:
-Data Enrichment
-Data Integration
-Derived Columns
-Data Normalisation & Standardisation
-Business Rules & Logic
-Data Aggregation
+- Data Enrichment
+- Data Integration
+- Derived Columns
+- Data Normalisation & Standardisation
+- Business Rules & Logic
+- Data Aggregation
 
 ##### Data Cleansing:
-Remove Duplicates
-Data Filtering
-Handling Missing Data
-Handling Invalid Values
-Handling Unwanted Spaces
-Outlier Detection
-Data Type Casting
+- Remove Duplicates
+- Data Filtering
+- Handling Missing Data
+- Handling Invalid Values
+- Handling Unwanted Spaces
+- Outlier Detection
+- Data Type Casting
 
 #### Load:
 Processing Type: Batch
 Load Method: Full Load (Truncate & Import)
 Slowly Changing Dimensions: Overwrite
 
-### Project
+### Project Steps
 #### Requirements Analysis
 ##### Analyse & Understand the Requirements
 insert requirements
