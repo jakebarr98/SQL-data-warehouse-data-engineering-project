@@ -91,3 +91,22 @@ Case: snake_case
 Language: English
 
 ###### Bronze Rules
+<sourcesystem>_<entity> eg. crm_customer_info
+
+###### Silver Rules
+<sourcesystem>_<entity> eg. crm_customer_info
+
+###### Gold Rules
+<category>_<entity> eg. dim_customer, fact_sales, agg_customers, agg_sales_monthly
+
+###### Column Naming Conventions
+####### Surrugate Keys
+<table_name>_key eg. customer_key is surrogate key in the customer table
+
+####### Technical Columns
+dwh_<column_name> eg. dwh_load_date
+
+####### Stored Procedure
+load_<layer> eg. load_bronze
+
+##### Create GIT Repo & Prepare the Structure
