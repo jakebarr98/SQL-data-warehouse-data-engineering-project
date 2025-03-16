@@ -58,7 +58,7 @@ Each layer has its own purpose and tasks, good data architecture practice means 
 Definition: Raw, unprocessed data as-is from sources
 Objective: Traceability & Debugging
 Object Type: Tables
-Load Method: Full load
+Load Method: Full load (Truncate & Insert)
 Data Transformation: None
 Data Modelling: None (as-is)
 Target Audience: Data engineer
@@ -111,3 +111,31 @@ dwh_<column_name> eg. dwh_load_date
 load_<layer> eg. load_bronze
 
 ##### Create GIT Repo & Prepare the Structure
+Created database within SQL Server Management Studio, and then created the bronze, silver and gold schemas within the database. As can be seen in the script linked below:
+
+![Crete database and schemas script]()
+
+#### Building Bronze Layer
+Analysiing Source Systems:
+Interviwing source system experts:
+Ask questions such as
+- Who owns the data?
+- What Business Process it supports?
+- System & Data documentation
+- Data Model & Data Catalog
+- How is the data Stored?
+- What are the integration capabilities? (Eg. API, File extraction, Direct DB connection)
+- Can we do an incremental load or full load?
+- Data scope & Historical needs
+- What is the expected dize of the extracts?
+- Are there any volume limitations?
+- How to avoid impacting the source systems performance?
+- Authentication and authorisation
+
+Coding: Data Ingestion:
+I wrioe script to create tables in DataWarehouse database, with IF statement that drops table before creating it again if it already exists'
+
+I then wrote script to bulk instert data from source file, truncating beforehand so that the data is fully loaded in each time withiout duplicating
+
+After validating the data that had come in by counting the number of rows of data in each table and comparing to the source file I turned this script into a stored procedure
+
