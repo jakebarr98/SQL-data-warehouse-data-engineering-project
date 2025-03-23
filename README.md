@@ -133,9 +133,44 @@ Ask questions such as
 - Authentication and authorisation
 
 Coding: Data Ingestion:
-I wrioe script to create tables in DataWarehouse database, with IF statement that drops table before creating it again if it already exists'
+I wrote a script to create tables in DataWarehouse database, with IF statement that drops table before creating it again if it already exists'
 
 I then wrote script to bulk instert data from source file, truncating beforehand so that the data is fully loaded in each time withiout duplicating
 
 After validating the data that had come in by counting the number of rows of data in each table and comparing to the source file I turned this script into a stored procedure
 
+#### Building Silver Layer
+
+Analysing data & identifying required cleansing.
+
+I started by interrogating the data to identify which fields required cleansing.
+
+crm_cust_info
+First I looked into this table, the interrogation techniques and identified cleansing was as follows:
+
+Check for Nulls or Duplicates in Primary Key
+Expectation: No Result
+```ruby
+SELECT
+cst_id,
+COUNT(*)
+FROM bronze.crm_cust_info
+GROUP BY cst_id
+HAVING COUNT(*) > 1 OR cst_id IS NULL;
+```
+
+Check for unwanted Spaces
+Expectation: No Results
+Fields identified for cleansing: cst_firstname, cst_lastname
+```ruby
+SELECT cst_firstname
+FROM bronze.crm_cust_info
+WHERE cst_firstname != TRIM(cst_key);
+```
+
+Data Standardizsation/Normalisation & Consistency
+Fields identified for cleansing: cst_marital_status, cst_gndr
+```ruby
+SELECT DISTINCT cst_marital_status
+FROM bronze.crm_cust_info;
+```
