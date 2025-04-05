@@ -143,34 +143,41 @@ After validating the data that had come in by counting the number of rows of dat
 
 Analysing data & identifying required cleansing.
 
-I started by interrogating the data to identify which fields required cleansing.
+I loaded the data in from each of the tables in the bronze schema, and individually did checks on each of the columns to check for required cleansing. 
 
-crm_cust_info
-First I looked into this table, the interrogation techniques and identified cleansing was as follows:
+The checks I performed can be seen in the script ![Silver Quality Checks]()
 
-Check for Nulls or Duplicates in Primary Key
-Expectation: No Result
-```ruby
-SELECT
-cst_id,
-COUNT(*)
-FROM bronze.crm_cust_info
-GROUP BY cst_id
-HAVING COUNT(*) > 1 OR cst_id IS NULL;
-```
+To summarise, I checked for duplicates, NULLS, inconsistent data, and also normalised & made data consistent where required.
 
-Check for unwanted Spaces
-Expectation: No Results
-Fields identified for cleansing: cst_firstname, cst_lastname
-```ruby
-SELECT cst_firstname
-FROM bronze.crm_cust_info
-WHERE cst_firstname != TRIM(cst_key);
-```
+Wherever cleansing/normalisation was required in a table column, I made changes to the SELECT statement.
 
-Data Standardizsation/Normalisation & Consistency
-Fields identified for cleansing: cst_marital_status, cst_gndr
-```ruby
-SELECT DISTINCT cst_marital_status
-FROM bronze.crm_cust_info;
-```
+Once I had all of my SELECT statements for the tables pulling in the cleansed data & knew all of the new data types of the fields for each table, I created my silver DDL script which created the silver schema tables for me to insert the data into. 
+
+![Silver DDL script]()
+
+I created a stored procedure using all of the SELECT statements for each table including the transformations that would insert the data into the silver tables.
+
+![Silver Stored Procedure]()
+
+Now I had completed building the Silver Layer of my data architecture.
+
+### Building Gold Layer
+The first step in building the gold layer was to identify the business objects - by this, I mean looking into what data was in each of the tables, and how they join together to create business objects. Below you can see how I've drawn this out to make 3 business objects from the 6 tables: Customers, Products & Sales.
+
+![Business Objects Diagram]()
+
+Now I had planned out the objects to build & how the silver tbales join together to create these objects I was able to start writing the script to build these objects.
+
+For the gold layer, I decided to build these as Views instead of tables. Below is the script I used to build each of the views, which included loading the data from the silver tables, doing some final transformations of the fields (name changes, data integration & creating surrogate keys) & joining tables together.
+
+![Building Gold Views Script]()
+
+As part of building the views I ddi some quality checks on the data which can be seen in the script below:
+
+![Gold Quality Checks]()
+
+Once completed, I had finished building my data warehouse. 
+
+I finished up by writing a data catalogue, describing the data in the gold layer as this is the data that bsuiness users would use - which can be seen here:
+
+![Data Catalogue]()
