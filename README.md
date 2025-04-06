@@ -3,9 +3,9 @@ Building a modern data warehouse with SQL Server, including ETL processes, data 
 ---
 ### Process:
 #### Extraction:
-Extraction Method: Pull
-Extract Type: Full
-Extract technique: File parsing
+- Extraction Method: Pull
+- Extract Type: Full
+- Extract technique: File parsing
 
 #### Transform:
 ##### Transformation:
