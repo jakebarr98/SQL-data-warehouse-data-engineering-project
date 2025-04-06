@@ -79,7 +79,7 @@ Data Transformation: Data integration, aggregation, apply business rules & logic
 Data Modelling: Star Schema, Aggregated objects, Flat tables
 Target Audience: Data analysts & business users
 
-![Data Architecture]([https://github.com/user-attachments/assets/d47a6bc4-740b-4e61-aa79-cdc9a36ebea1](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/SQL-DW-architecture.drawio.png))
+![Data Architecture](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/SQL-DW-architecture.drawio.png)
 
 #### Project Initialisation
 ##### Create Detailed Project Tasks in Notion
