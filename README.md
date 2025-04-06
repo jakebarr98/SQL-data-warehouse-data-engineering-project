@@ -145,7 +145,7 @@ Analysing data & identifying required cleansing.
 
 I loaded the data in from each of the tables in the bronze schema, and individually did checks on each of the columns to check for required cleansing. 
 
-The checks I performed can be seen in the script ![Silver Quality Checks]()
+The checks I performed can be seen in the script ![Silver Quality Checks](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/tests/quality_checks_silver.sql)
 
 To summarise, I checked for duplicates, NULLS, inconsistent data, and also normalised & made data consistent where required.
 
@@ -153,11 +153,11 @@ Wherever cleansing/normalisation was required in a table column, I made changes 
 
 Once I had all of my SELECT statements for the tables pulling in the cleansed data & knew all of the new data types of the fields for each table, I created my silver DDL script which created the silver schema tables for me to insert the data into. 
 
-![Silver DDL script]()
+![Silver DDL script](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/scripts/silver/ddl_silver.sql)
 
 I created a stored procedure using all of the SELECT statements for each table including the transformations that would insert the data into the silver tables.
 
-![Silver Stored Procedure]()
+![Silver Stored Procedure](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/scripts/silver/proc_load_silver.sql)
 
 Now I had completed building the Silver Layer of my data architecture.
 
@@ -170,11 +170,11 @@ Now I had planned out the objects to build & how the silver tbales join together
 
 For the gold layer, I decided to build these as Views instead of tables. Below is the script I used to build each of the views, which included loading the data from the silver tables, doing some final transformations of the fields (name changes, data integration & creating surrogate keys) & joining tables together.
 
-![Building Gold Views Script]()
+![Building Gold Views Script](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/scripts/gold/ddl_gold.sql)
 
 As part of building the views I ddi some quality checks on the data which can be seen in the script below:
 
-![Gold Quality Checks]()
+![Gold Quality Checks](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/tests/quality_checks_gold.sql)
 
 Once completed, I had finished building my data warehouse. 
 
