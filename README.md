@@ -26,7 +26,7 @@ Building a modern data warehouse with SQL Server, including ETL processes, data 
 - Data Type Casting
 
 #### Load:
-Processing Type: Batch
+- Processing Type: Batch
 - Load Method: Full Load (Truncate & Import)
 - Slowly Changing Dimensions: Overwrite
 
