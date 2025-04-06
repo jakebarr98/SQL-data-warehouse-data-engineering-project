@@ -27,13 +27,19 @@ Extract technique: File parsing
 
 #### Load:
 Processing Type: Batch
-Load Method: Full Load (Truncate & Import)
-Slowly Changing Dimensions: Overwrite
+- Load Method: Full Load (Truncate & Import)
+- Slowly Changing Dimensions: Overwrite
 
 ### Project Steps
 #### Requirements Analysis
 ##### Analyse & Understand the Requirements
-insert requirements
+Develop SQL-based analytics to deliver detailed insights into:
+
+- Customer Behavior
+- Product Performance
+- Sales Trends
+
+These insights empower stakeholders with key business metrics, enabling strategic decision-making.
 
 #### Design Data Architecture
 ##### Choose Data Management Approach
