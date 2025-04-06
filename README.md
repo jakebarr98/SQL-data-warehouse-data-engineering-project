@@ -81,7 +81,7 @@ Target Audience: Data analysts & business users
 
 ![Data Architecture](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/SQL-DW-architecture.drawio.png)
 
-![Tables Lineage Through Layers](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/Layers%20Lineage.drawio)
+![Tables Lineage Through Layers](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/Layer%20Tables%20Lineage.png)
 
 #### Project Initialisation
 ##### Create Detailed Project Tasks in Notion
