@@ -172,7 +172,7 @@ The first step in building the gold layer was to identify the business objects -
 
 ![Business Objects Diagram](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/Business%20Objects%20Diagram.png)
 
-Now I had planned out the objects to build & how the silver tbales join together to create these objects I was able to start writing the script to build these objects.
+Now I had planned out the objects to build & how the silver tables join together to create these objects I was able to start writing the script to build these objects.
 
 For the gold layer, I decided to build these as Views instead of tables. Below is the script I used to build each of the views, which included loading the data from the silver tables, doing some final transformations of the fields (name changes, data integration & creating surrogate keys) & joining tables together.
 
