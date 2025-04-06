@@ -1,8 +1,6 @@
 # Design & Build SQL Data Warehouse
 Building a modern data warehouse with SQL Server, including ETL processes, data modelling and analytics.
 ---
-### Theory:
-
 ### Process:
 #### Extraction:
 Extraction Method: Pull
@@ -85,35 +83,35 @@ Target Audience: Data analysts & business users
 
 #### Project Initialisation
 ##### Create Detailed Project Tasks in Notion
-Link
+![Link to Notion Project Tracker](https://www.notion.so/Data-Warehouse-Project-1b65bf5c75d98091a8c8ffc55cb55c62)
 
 ##### Define Naming Conventions in Project
 Case: snake_case
 Language: English
 
-###### Bronze Rules
+**Bronze Rules**
 <sourcesystem>_<entity> eg. crm_customer_info
 
-###### Silver Rules
+**Silver Rules**
 <sourcesystem>_<entity> eg. crm_customer_info
 
-###### Gold Rules
+**Gold Rules**
 <category>_<entity> eg. dim_customer, fact_sales, agg_customers, agg_sales_monthly
 
 ###### Column Naming Conventions
-####### Surrugate Keys
+**Surrugate Keys**
 <table_name>_key eg. customer_key is surrogate key in the customer table
 
-####### Technical Columns
+**Technical Columns**
 dwh_<column_name> eg. dwh_load_date
 
-####### Stored Procedure
+**Stored Procedure**
 load_<layer> eg. load_bronze
 
 ##### Create GIT Repo & Prepare the Structure
 Created database within SQL Server Management Studio, and then created the bronze, silver and gold schemas within the database. As can be seen in the script linked below:
 
-![Crete database and schemas script]()
+![Crete database and schemas script](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/scripts/init_database.sql)
 
 #### Building Bronze Layer
 Analysiing Source Systems:
@@ -133,7 +131,7 @@ Ask questions such as
 - Authentication and authorisation
 
 Coding: Data Ingestion:
-I wrote a script to create tables in DataWarehouse database, with IF statement that drops table before creating it again if it already exists'
+I wrote a script to create tables in DataWarehouse database, with IF statement that drops table before creating it again if it already exists.
 
 I then wrote script to bulk instert data from source file, truncating beforehand so that the data is fully loaded in each time withiout duplicating
 
@@ -164,7 +162,7 @@ Now I had completed building the Silver Layer of my data architecture.
 ### Building Gold Layer
 The first step in building the gold layer was to identify the business objects - by this, I mean looking into what data was in each of the tables, and how they join together to create business objects. Below you can see how I've drawn this out to make 3 business objects from the 6 tables: Customers, Products & Sales.
 
-![Business Objects Diagram]()
+![Business Objects Diagram](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/Business%20Objects%20Diagram.png)
 
 Now I had planned out the objects to build & how the silver tbales join together to create these objects I was able to start writing the script to build these objects.
 
@@ -180,4 +178,4 @@ Once completed, I had finished building my data warehouse.
 
 I finished up by writing a data catalogue, describing the data in the gold layer as this is the data that bsuiness users would use - which can be seen here:
 
-![Data Catalogue]()
+![Data Catalogue](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/data_catalogue.md)
