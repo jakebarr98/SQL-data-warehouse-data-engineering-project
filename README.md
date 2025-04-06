@@ -59,31 +59,31 @@ Design Approaches:
 Each layer has its own purpose and tasks, good data architecture practice means no mixing tasks within layers, for example: no business transformations in the silver layer & no cleansing in the gold layer.
 
 ##### Bronze Layer
-Definition: Raw, unprocessed data as-is from sources
-Objective: Traceability & Debugging
-Object Type: Tables
-Load Method: Full load (Truncate & Insert)
-Data Transformation: None
-Data Modelling: None (as-is)
-Target Audience: Data engineer
+- Definition: Raw, unprocessed data as-is from sources
+- Objective: Traceability & Debugging
+- Object Type: Tables
+- Load Method: Full load (Truncate & Insert)
+- Data Transformation: None
+- Data Modelling: None (as-is)
+- Target Audience: Data engineer
 
 ##### Silver Layer
-Definition: Clean & Standardised data
-Objective: (Intermediate layer) Prepare data for analysis
-Object Type: Tables
-Load Method: Full load
-Data Transformation: Data Cleansing, Standardisation, normalisation, derive columns, enrichment
-Data Modelling: None (as-is)
-Target Audience: Data engineer & analysts
+- Definition: Clean & Standardised data
+- Objective: (Intermediate layer) Prepare data for analysis
+- Object Type: Tables
+- Load Method: Full load
+- Data Transformation: Data Cleansing, Standardisation, normalisation, derive columns, enrichment
+- Data Modelling: None (as-is)
+- Target Audience: Data engineer & analysts
 
 ##### Gold Layer
-Definition: Business Ready Data
-Objective: Provide data to be consumed for reporting & analytics
-Object Type: Views
-Load Method: None
-Data Transformation: Data integration, aggregation, apply business rules & logic
-Data Modelling: Star Schema, Aggregated objects, Flat tables
-Target Audience: Data analysts & business users
+- Definition: Business Ready Data
+- Objective: Provide data to be consumed for reporting & analytics
+- Object Type: Views
+- Load Method: None
+- Data Transformation: Data integration, aggregation, apply business rules & logic
+- Data Modelling: Star Schema, Aggregated objects, Flat tables
+- Target Audience: Data analysts & business users
 
 ![Data Architecture](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/documents/SQL-DW-architecture.drawio.png)
 
@@ -94,8 +94,8 @@ Target Audience: Data analysts & business users
 ![Link to Notion Project Tracker](https://www.notion.so/Data-Warehouse-Project-1b65bf5c75d98091a8c8ffc55cb55c62)
 
 ##### Define Naming Conventions in Project
-Case: snake_case
-Language: English
+- Case: snake_case
+- Language: English
 
 **Bronze Rules**
 <sourcesystem>_<entity> eg. crm_customer_info
@@ -122,8 +122,8 @@ Created database within SQL Server Management Studio, and then created the bronz
 ![Crete database and schemas script](https://github.com/jakebarr98/SQL-data-warehouse-data-engineering-project/blob/main/scripts/init_database.sql)
 
 #### Building Bronze Layer
-Analysiing Source Systems:
-Interviwing source system experts:
+Analysing Source Systems
+Interviwing source system experts
 Ask questions such as
 - Who owns the data?
 - What Business Process it supports?
